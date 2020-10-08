@@ -104,4 +104,4 @@ while not victory:
     valid_directions = find_directions(col, row)
     print_directions(valid_directions)
     victory, col, row, lever_counter = play_one_move(col, row, valid_directions,lever_counter)
-print("Victory!")
+print(f"Victory! Total coins {coins}.")
