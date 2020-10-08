@@ -16,7 +16,7 @@ def pull_lever(col,row,lever_counter,coins):
     elif lever_counter == 0:
         if (col,row) in COIN_LOCATION:
             lever_pull = random.choice([YES,NO])
-        print(f"Pull a lever (y/n): {lever_pull}")
+            print(f"Pull a lever (y/n): {lever_pull}")
         if lever_pull == "y":
             coins += 1
             print(f"You received 1 coin, your total is now {coins}.")
