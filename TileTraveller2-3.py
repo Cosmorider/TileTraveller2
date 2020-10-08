@@ -9,18 +9,14 @@ NO = "n"
 
 def pull_lever(col,row,lever_counter,coins):
     lever_pull = "n"
+    COIN_LOCATION = [(1,2),(2,2),(2,3),(3,2)]
+
     if lever_counter > 0:
         return coins
     elif lever_counter == 0:
-        if col == 1 and row == 2:
+        if (col,row) in COIN_LOCATION:
             lever_pull = random.choice([YES,NO])
-        elif col == 2 and row == 2:
-            lever_pull = random.choice([YES,NO])
-        elif col == 2 and row == 3:
-            lever_pull = random.choice([YES,NO])
-        elif col == 3 and row == 2:
-            lever_pull = random.choice([YES,NO])
-        print(lever_pull)
+        print(f"Pull a lever (y/n): {lever_pull}")
         if lever_pull == "y":
             coins += 1
             print(f"You received 1 coin, your total is now {coins}.")
@@ -85,6 +81,7 @@ def play_one_move(col, row, valid_directions,lever_counter):
         Return if victory has been obtained and updated col,row '''
     victory = False
     direction = random.choice([NORTH, EAST, SOUTH, WEST])
+    print(f"Direction: {direction}")
     direction = direction.lower()
     
     if not direction in valid_directions:
